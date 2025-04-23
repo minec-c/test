@@ -16,12 +16,13 @@
 		          godotWindow.callGodot();
 		      } else {
 		          console.warn("callGodot is not defined in iframe yet.");
-		
+		      }
 		      // Enable button and hook click
 		      window.addEventListener("load", () => {
 			      const button = document.getElementById("godot-button");
 			      button.disabled = false;
 			      button.addEventListener("click", callGodot);
+		      });
 		
 	  </script>
 	</body>
