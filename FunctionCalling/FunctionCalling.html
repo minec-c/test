@@ -116,10 +116,14 @@
 <link rel='apple-touch-icon' href='FunctionCalling.apple-touch-icon.png'/>
 
 <script>
-    function callGodot() {
-        // Call Godot function here
+function callGodot() {
+    if (typeof GodotRuntime !== "undefined") {
         GodotRuntime.callGodot();
+    } else {
+        console.warn("GodotRuntime is not defined yet.");
+        setTimeout(callGodot, 100);
     }
+}
 </script>
 	
 </head>
