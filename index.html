@@ -10,13 +10,10 @@
 	  <button id="godot-button" disabled>	Call Godot				</button>
 	  <script>
 	      function callGodot( ) {
-		      const godotWindow = document.getElementById("godot-frame").contentWindow;
-		
-		      if (typeof godotWindow.callGodot === "function") {
-		          godotWindow.callGodot();
-		      } else {
-		          console.warn("callGodot is not defined in iframe yet.");
-		      }
+		      //const godotWindow = document.getElementById("godot-frame").contentWindow;
+		      const godotFrame = document.getElementById("godot-frame");
+		      const godotWindow = godotFrame.contentWindow;
+		      godotWindow.callGodot();
 		      // Enable button and hook click
 		      window.addEventListener("load", () => {
 			      const button = document.getElementById("godot-button");
