@@ -1,0 +1,27 @@
+<! DOCTYPE html>
+<html>	<head>
+ 		 <meta charset="UTF-8">
+ 		 <title>Godot Communication Test</title>
+	</head>
+	<body>
+	  <iframe id="godot-frame" src="FunctionCalling.html" width="800" height="600">	</iframe>
+	  <br>
+	  <button id="godot-button" disabled>	Call Godot				</button>
+	  <script>
+	      function callGodot( ) {
+		      const godotWindow = document. getElementById("godot-frame"). contentWindow;
+		
+		      if (typeof godotWindow.callGodot === "function") {
+		          godotWindow.callGodot();
+		      } else {
+		          console.warn("callGodot is not defined in iframe yet.");
+		
+		      // Enable button and hook click
+		      window.addEventListener("load", () => {
+			      const button = document.getElementById("godot-button");
+			      button.disabled = false;
+			      button.addEventListener("click", callGodot);
+		
+	  </script>
+	</body>
+</html>
