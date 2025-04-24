@@ -1,34 +1,31 @@
-<! DOCTYPE html>
-<html>	
-	<head>
- 		 <meta charset="UTF-8">
- 		 <title>Godot Communication Test</title>
-	</head>
-	<body>
-	<!-- <iframe id="godot-frame" src="FunctionCalling/FunctionCalling.html" width="800" height="600">	</iframe>  -->
-	<iframe id="godot-frame" width="800" height="600"></iframe>
-	  <br>
-	  <button id="godot-button" disabled>Call Godot</button>
-	  <script>
-	      function callGodot( ) {
-		      //const godotWindow = document.getElementById("godot-frame").contentWindow;
-		      const godotFrame = document.getElementById("godot-frame");
-		      //const godotWindow = godotFrame.contentWindow;
-		      const button = document.getElementById("godot-button");
-	              //godotFrame.src = "FunctionCalling/FunctionCalling.html";
-		      //godotWindow.callGodot();
-		      // Enable button and hook click
-		        godotFrame.onload = function() {
-		            button.disabled = false;
-		        };
-		      window.addEventListener("load", () => {
-			      
-			      // button.disabled = false;
-			      // button.addEventListener("click", callGodot);
-			      console.log("Button clicked");
-		      });
-		      godotFrame.src = "FunctionCalling/FunctionCalling.html";
-	      }
-	  </script>
-	</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Godot Communication Test</title>
+</head>
+<body>
+    <iframe id="godot-frame" width="800" height="600"></iframe>
+    <br>
+    <button id="godot-button" disabled>Call Godot</button>
+    <script>
+        const godotFrame = document.getElementById("godot-frame");
+        const button = document.getElementById("godot-button");
+
+        console.log("Setting up event listeners");
+
+        godotFrame.addEventListener("load", function() {
+            console.log("Iframe loaded");
+            button.disabled = false;
+        });
+
+        button.addEventListener("click", function() {
+            console.log("Button clicked");
+            //const godotWindow = godotFrame.contentWindow;
+            //godotWindow.callGodot();
+        });
+
+        godotFrame.src = "FunctionCalling/FunctionCalling.html";
+    </script>
+</body>
 </html>
