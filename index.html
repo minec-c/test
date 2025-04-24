@@ -8,20 +8,26 @@
 	<!-- <iframe id="godot-frame" src="FunctionCalling/FunctionCalling.html" width="800" height="600">	</iframe>  -->
 	<iframe id="godot-frame" width="800" height="600"></iframe>
 	  <br>
-	  <button id="godot-button" disabled>	Call Godot				</button>
+	  <button id="godot-button" disabled>Call Godot</button>
 	  <script>
 	      function callGodot( ) {
 		      //const godotWindow = document.getElementById("godot-frame").contentWindow;
 		      const godotFrame = document.getElementById("godot-frame");
 		      //const godotWindow = godotFrame.contentWindow;
-	              godotFrame.src = "FunctionCalling/FunctionCalling.html";
+		      const button = document.getElementById("godot-button");
+	              //godotFrame.src = "FunctionCalling/FunctionCalling.html";
 		      //godotWindow.callGodot();
 		      // Enable button and hook click
+		        godotFrame.onload = function() {
+		            button.disabled = false;
+		        };
 		      window.addEventListener("load", () => {
-			      const button = document.getElementById("godot-button");
-			      button.disabled = false;
-			      button.addEventListener("click", callGodot);
+			      
+			      // button.disabled = false;
+			      // button.addEventListener("click", callGodot);
+			      console.log("Button clicked");
 		      });
+		      godotFrame.src = "FunctionCalling/FunctionCalling.html";
 	      }
 	  </script>
 	</body>
