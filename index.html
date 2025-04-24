@@ -11,15 +11,11 @@
     <script>
         const godotFrame = document.getElementById("godot-frame");
         const button = document.getElementById("godot-button");
-
         console.log("Setting up event listeners");
-
-        // Enable button after page load
         document.addEventListener("DOMContentLoaded", function() {
             console.log("Page loaded");
             button.disabled = false;
         });
-
         button.addEventListener("click", function() {
             console.log("Button clicked");
             godotFrame.src = "FunctionCalling/FunctionCalling.html";
