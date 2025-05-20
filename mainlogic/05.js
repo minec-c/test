@@ -9,3 +9,4 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 3, 6);
 scene.add(camera);
+export {camera};
