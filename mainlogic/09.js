@@ -60,4 +60,5 @@ gltfLoader.load(
     console.error('An error occurred while loading the GLTF model:', error);
   }
 );
+export {mixer};
 
