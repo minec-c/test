@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 // Camera
 const camera = new THREE.PerspectiveCamera(
 	75,
