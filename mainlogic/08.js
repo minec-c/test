@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {scene} from '../mainlogic/04.js';
 // Floor
 const floorMesh = new THREE.Mesh(
 	new THREE.PlaneGeometry(50, 50),
