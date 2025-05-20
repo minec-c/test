@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {scene} from '../mainlogic/04.js';
 // Camera
 const camera = new THREE.PerspectiveCamera(
 	75,
