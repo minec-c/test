@@ -1,4 +1,4 @@
-import * as THREE 'three';
+import * as THREE from 'three';
 // Animation
 const clock = new THREE.Clock();
 function draw() {
