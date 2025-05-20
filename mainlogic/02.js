@@ -5,3 +5,4 @@ const renderer = new THREE.WebGLRenderer({
 	canvas,
 	antialias: true
 });
+export {renderer};
