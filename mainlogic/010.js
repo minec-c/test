@@ -7,7 +7,7 @@ const clock = new THREE.Clock();
 function draw() {
 	const delta = clock.getDelta();
 	renderer.render(scene, camera);
-	rederer.setAnimationLoop(draw);
+	//rederer.setAnimationLoop(draw); ////SILENT BUG: BLACK SCREEN AND ZERO PUSH ERRORS
 }
-//renderer.setAnimationLoop(draw);
+renderer.setAnimationLoop(draw);
 
