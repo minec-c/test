@@ -30,6 +30,18 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.load(
   '../gltf/texture01dim256px.glb', // Make sure this path is correct!
   (gltf) => {
+    // (DEBUGING). Checking animation exist in gltf file:
+    console.log('GLTF scene:', gltf.scene);
+    console.log('Animation:', gltf.animations);
+    
+    if (gltf.animations.length === 0){
+      console.log('No animaitons found in the GLB file.');
+    } else {
+      gltf.animations.forEach((clip, index) =>{
+        console.log(`Animaiton ${index}:`, clip.name);
+      });
+    }
+    // Continue normaly
     const model = gltf.scene;
     scene.add(model);
 
