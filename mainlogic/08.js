@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 // Floor
 const floorMesh = new THREE.Mesh(
 	new THREE.PlaneGeometry(50, 50),
