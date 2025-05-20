@@ -8,7 +8,6 @@ const scene = new THREE.Scene();
 const texloader = new THREE.TextureLoader();
 texloader.load(
   '../texture/bgtexbluesky.png',
-  '../texture/treetest01bbnoanim.png',
   function (texture){  scene.background = texture;},
   undefined,
   function(err){ console.log('Error loading background texture:',err);}
