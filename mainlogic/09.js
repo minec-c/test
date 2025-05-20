@@ -11,7 +11,7 @@ gltfLoader.load(
 		const model = gltf.scene;
 		scene.add(model);
 		const mixer = new THERR.AnimationMixer(model);
-		const clip = gltf.animations;
+		const clips = gltf.animations;
 		const clip = THREE.AnimationClip.findByName(clips, 'CubeAction');
 		const action = mixer.clipAction(clip);
 		action.play();
