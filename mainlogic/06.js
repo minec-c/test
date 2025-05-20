@@ -1,4 +1,4 @@
-
+import * as THREE from 'three';
 // Light
 const ambientLight = new THREE.AmbientLight('white', 1);
 scene.add(ambientLight);
