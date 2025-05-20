@@ -7,12 +7,17 @@ import {scene} from '../mainlogic/04.js';
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
 	'../gltf/texture01dim256px.glb',
-	(gltf) => {
+	function (gltf){				//	(gltf) => {
 		const model = gltf.scene;
 		scene.add(model);
+		const mixer = new THERR.AnimationMixer(model);
+		const clip = gltf.animations;
+		const clip = THREE.AnimationClip.findByName(clips, 'CubeAction');
+		const action = mixer.clipAction(clip);
+		action.play();
 	},
 	undefined,
-	(error) => {
+	function(error){					//	(error) => {
 		console.error('An error happened loading the GLTF model:', error);
 	}
 );
