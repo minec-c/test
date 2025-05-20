@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {camera} from '../mainlogic/05.js';
+import {scene} from '../mainlogic/04.js';
 // Light
 const ambientLight = new THREE.AmbientLight('white', 1);
 scene.add(ambientLight);
