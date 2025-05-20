@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 // GLTF Loader
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
