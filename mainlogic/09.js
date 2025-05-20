@@ -4,7 +4,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 // GLTF Loader
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-	'./gltf/texture01dim256px.glb',
+	'../gltf/texture01dim256px.glb',
 	(gltf) => {
 		const model = gltf.scene;
 		scene.add(model);
