@@ -82,11 +82,14 @@ function handleGLTF(gltf) {
     }
   });
   scene.add(model);
-  model.traverse  (  function (child){
-  if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
-  }
+
   //List all mesh names
   model.traverse(function (child){ if (child.isMesh) { console.log('Found mesh name: ',child.name);}});
+  //Find hierarchy and parents of child or meash:
+  model.traverse(function (child) {
+    console.log(`${child.type} - ${child.name} - Parent: ${child.parent?.name}`);
+  });
+  
   if (gltf.animations.length > 0) {
     mixer = new THREE.AnimationMixer(model);
     const clip = THREE.AnimationClip.findByName(gltf.animations, 'CubeAction');
@@ -95,6 +98,7 @@ function handleGLTF(gltf) {
     } else {      console.warn('Animation "CubeAction" not found.');
     }
   }
+  
 }        //func handleGLTF(gltf)
 // gltfLoader.load(
 //   '../gltf/texture01dim256px.glb', // Make sure this path is correct!
