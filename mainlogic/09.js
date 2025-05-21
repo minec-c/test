@@ -48,18 +48,35 @@ function handleGLTF(gltf) {
   model.traverse  (  function (child){
     if (child.isMesh) {
       const mat = child.material;
-      //FIX Transparency
-      if (mat.transparent !== true && mat.alphaMap) {
+      //check and fix transparency
+      if (mat.map && mat.alphaMap) {
         mat.transparent = true;
+        mat.alphaTest = 0.01;  // or 0.1 if using cutout style
         mat.depthWrite = false;
-        mat.alphaTest = 0.1; //or 0.01 depending on the texture
       }
-      // OPtional: force emission to be visible
-      if (mat.emissive && mat.emissiveIntensity == 0){
-        mat.emissiveIntensity = 1;
+      // Fallback: if only one texture but has alpha channel
+      if (mat.map && mat.map.source.data) {
+        const hasAlpha = mat.map.source.data instanceof HTMLImageElement && mat.map.source.data.src.includes('.png');
+        if (hasAlpha){
+          mat.transaprent = true;
+          mat.alphaTest = 0.01;
+          mat.depthWrite = false;
+        }
       }
-      // Optional: disable furstum culling if model disappears when off-center
-      child.frustumCulled = false;
+        // Optional: oduble-sided if alpha reveal holes
+          mat.side = THREE.DoubleSide;
+      // //FIX Transparency
+      // if (mat.transparent !== true && mat.alphaMap) {
+      //   mat.transparent = true;
+      //   mat.depthWrite = false;
+      //   mat.alphaTest = 0.1; //or 0.01 depending on the texture
+      // }
+      // // OPtional: force emission to be visible
+      // if (mat.emissive && mat.emissiveIntensity == 0){
+      //   mat.emissiveIntensity = 1;
+      // }
+      // // Optional: disable furstum culling if model disappears when off-center
+      // child.frustumCulled = false;
     }
   });
   scene.add(model);
