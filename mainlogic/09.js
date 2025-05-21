@@ -30,7 +30,7 @@ gltfLoader.load('../gltf/texture01dim256px.glb',
                 function (gltf){  handleGLTF(gltf);}, undefined, function (error) {console.error('Error loading texture01dim256px.glb:', 
                 error);
 });
-gltfLoader.load('../gltf/treetest01bbnoanim.glb', 
+gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb', 
                 function (gltf){  handleGLTF(gltf);}, undefined, function (error) {console.error('Error loading treetest01bbnoanim.glb:', 
                 error);
 });
