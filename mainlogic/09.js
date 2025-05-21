@@ -42,7 +42,7 @@ function handleGLTF(gltf) {
   else {    gltf.animations.forEach(  function (clip, index) {      console.log(`Animation ${index}:`, clip.name);    });
        }
   //ADDED 2005252111
-  const mode = gltf.scene;
+  const model = gltf.scene;
   scene.add(model);
   if (gltf.animations.length > 0) {
     mixer = new THREE.AnimationMixer(model);
