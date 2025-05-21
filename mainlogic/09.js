@@ -47,24 +47,22 @@ function handleGLTF(gltf) {
   //FIX MATERIALS (transparency/emissive)
   model.traverse  (  function (child){
     //2105251428 MOVE SPECIFIC MESH
-    if (child.isMesh && child.name === 'Cube'){
-      child.position.set(111, 111, 0); // Move only this mesh
-    }
+    if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
     if (child.isMesh) {
-      const mat = child.material;
-      //check and fix transparency
-      if (mat.map && mat.alphaMap) {
-        mat.transparent = true;
-        mat.alphaTest = 0.01;  // or 0.1 if using cutout style
-        mat.depthWrite = false;
+        const mat = child.material;
+        //check and fix transparency
+        if (mat.map && mat.alphaMap) {
+          mat.transparent = true;
+          mat.alphaTest = 0.01;  // or 0.1 if using cutout style
+          mat.depthWrite = false;
       }
       // Fallback: if only one texture but has alpha channel
       if (mat.map && mat.map.source.data) {
-        const hasAlpha = mat.map.source.data instanceof HTMLImageElement && mat.map.source.data.src.includes('.png');
-        if (hasAlpha){
-          mat.transaprent = true;
-          mat.alphaTest = 0.01;
-          mat.depthWrite = false;
+          const hasAlpha = mat.map.source.data instanceof HTMLImageElement && mat.map.source.data.src.includes('.png');
+          if (hasAlpha){
+            mat.transaprent = true;
+            mat.alphaTest = 0.01;
+            mat.depthWrite = false;
         }
       }
         // Optional: oduble-sided if alpha reveal holes
@@ -84,6 +82,7 @@ function handleGLTF(gltf) {
     }
   });
   scene.add(model);
+  if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
   //List all mesh names
   model.traverse(function (child){ if (child.isMesh) { console.log('Found mesh name: ',child.name);}});
   if (gltf.animations.length > 0) {
