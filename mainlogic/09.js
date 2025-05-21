@@ -45,7 +45,8 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
   //ADDED 2105250001  //FIX MATERIALS (transparency/emissive)
   model.traverse  (  function (child){
               //2105251428 MOVE SPECIFIC MESH
-              if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
+              // if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
+              if (child.name === 'Cube') { child.position.set(112, 112, 0);}
               if (child.isMesh) 
               {     const mat = child.material;        //check and fix transparency
                     if (mat.map && mat.alphaMap) {          mat.transparent = true;          mat.alphaTest = 0.01;  // or 0.1 if using cutout style          mat.depthWrite = false;
