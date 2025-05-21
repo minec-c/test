@@ -82,7 +82,9 @@ function handleGLTF(gltf) {
     }
   });
   scene.add(model);
+  model.traverse  (  function (child){
   if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
+  }
   //List all mesh names
   model.traverse(function (child){ if (child.isMesh) { console.log('Found mesh name: ',child.name);}});
   if (gltf.animations.length > 0) {
