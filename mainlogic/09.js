@@ -46,6 +46,10 @@ function handleGLTF(gltf) {
   //ADDED 2105250001
   //FIX MATERIALS (transparency/emissive)
   model.traverse  (  function (child){
+    //2105251428 MOVE SPECIFIC MESH
+    if (child.isMesh && child.name === 'MyMeshName'){
+      child.position.set(11, 11, 0); // Move only this mesh
+    }
     if (child.isMesh) {
       const mat = child.material;
       //check and fix transparency
@@ -80,6 +84,8 @@ function handleGLTF(gltf) {
     }
   });
   scene.add(model);
+  //List all mesh names
+  model.traverse(function (child){ if (child.isMesh) { console.log('Found mesh name: ',child.name);}});
   if (gltf.animations.length > 0) {
     mixer = new THREE.AnimationMixer(model);
     const clip = THREE.AnimationClip.findByName(gltf.animations, 'CubeAction');
