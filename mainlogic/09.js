@@ -29,7 +29,7 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.load('../gltf/texture01dim256px.glb', 
                 function (gltf) {
                   const cube = gltf.scene;
-                  cube.position.set(-122,0,0);
+                  cube.position.set(-25,0,0);
                   scene.add(cube);
                   handleGLTF(gltf);
                 },
