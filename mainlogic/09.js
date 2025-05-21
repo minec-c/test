@@ -47,7 +47,7 @@ function handleGLTF(gltf) {
   if (gltf.animations.length > 0) {
     mixer = new THREE.AnimationMixer(model);
     const clip = THREE.AnimationClip.findByName(gltf.animations, 'CubeAction');
-    if (cliip) {  const action = mixer.clipAction(clip);
+    if (clip) {  const action = mixer.clipAction(clip);
       action.play();
     } else {      console.warn('Animation "CubeAction" not found.');
     }
