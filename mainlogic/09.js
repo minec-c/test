@@ -74,7 +74,7 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
   scene.add(model);
   model.traverse(function (child) {
     if (child.isMesh && child.name === 'Cube') {
-      child.position.set(2, 2, 0);
+      child.position.set(112, 112, 0);
       console.log('Move Cube: ', child.position);
     }
   });
