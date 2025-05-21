@@ -44,7 +44,7 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                   scene.add(plane);
                   handleGLTF(gltf);
                 },
-                undefined
+                undefined,
                 function (error) {console.error('Error loading treetest01bbnoanim.glb:', 
                 error);
 });
