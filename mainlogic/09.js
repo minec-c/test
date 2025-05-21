@@ -40,7 +40,7 @@ gltfLoader.load('../gltf/texture01dim256px.glb',
 gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 function (gltf){
                   const plane = gltf.scene;
-                  plane.position.set(122,0,0);
+                  // plane.position.set(122,0,0);
                   scene.add(plane);
                   handleGLTF(gltf);
                 },
