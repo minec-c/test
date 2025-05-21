@@ -53,7 +53,7 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
                       // Fallback: if only one texture but has alpha channel
                     if (mat.map && mat.map.source.data) {          const hasAlpha = mat.map.source.data instanceof HTMLImageElement && mat.map.source.data.src.includes('.png');
                                                             if (hasAlpha){
-                                                                          mat.transaprent = true;            mat.alphaTest = 0.01;            mat.depthWrite = false;
+                                                                          mat.transparent = true;            mat.alphaTest = 0.01;            mat.depthWrite = false;
                                                          }              }
                   // Optional: oduble-sided if alpha reveal holes
                     mat.side = THREE.DoubleSide;
