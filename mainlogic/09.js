@@ -27,19 +27,25 @@ let mixer;
 // GLTF loader
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('../gltf/texture01dim256px.glb', 
-                const cube = gltf.scene;
-                cube.position.set(-122,0,0);
-                scene.add(cube);
-                handleGLTF(gltf);
-                function (gltf){  handleGLTF(gltf);}, undefined, function (error) {console.error('Error loading texture01dim256px.glb:', 
+                function (gltf) {
+                  const cube = gltf.scene;
+                  cube.position.set(-122,0,0);
+                  scene.add(cube);
+                  handleGLTF(gltf);
+                },
+                undefined,
+                function (error) {console.error('Error loading texture01dim256px.glb:', 
                 error);
 });
 gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
-                const plane = gltf.scene;
-                plane.position.set(122,0,0);
-                scene.add(plane);
-                handleGLTF(gltf);
-                function (gltf){  handleGLTF(gltf);}, undefined, function (error) {console.error('Error loading treetest01bbnoanim.glb:', 
+                function (gltf){
+                  const plane = gltf.scene;
+                  plane.position.set(122,0,0);
+                  scene.add(plane);
+                  handleGLTF(gltf);
+                },
+                undefined
+                function (error) {console.error('Error loading treetest01bbnoanim.glb:', 
                 error);
 });
 function handleGLTF(gltf) {  
