@@ -37,7 +37,7 @@ gltfLoader.load('../gltf/treetest01bbnoanim.glb',
 function handleGLTF(gltf) {
   console.log('GLTF scene:', gltf.scene);
   console.log('Animation:', gltf.animation);
-  if (gltf.animation.length === 0){    console.log('No animations found in the GLB file.');
+  if (gltf.animations.length === 0){    console.log('No animations found in the GLB file.');
                                   } 
   else {    gltf.animations.forEach(  function (clip, index) {      console.log(`Animation ${index}:`, clip.name);    });
        }
