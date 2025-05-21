@@ -46,7 +46,7 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
   model.traverse  (  function (child){
               //2105251428 MOVE SPECIFIC MESH
               // if (child.isMesh && child.name === 'Cube'){child.position.set(111, 111, 0);}
-              if (child.name === 'Cube') { child.position.set(112, , 112);}
+              if (child.name === 'Cube') { child.position.set(112, 0, 112);}
               if (child.isMesh) 
               {     const mat = child.material;        //check and fix transparency
                     if (mat.map && mat.alphaMap) {          mat.transparent = true;          mat.alphaTest = 0.01;  // or 0.1 if using cutout style          mat.depthWrite = false;
@@ -81,7 +81,7 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
   // });
   const cube = model.getObjectByName('Cube');
   if (cube && cube.isMesh){
-    cube.position.set(112, , 112);
+    cube.position.set(112, 0, 112);
     console.log('Moved Cube:', cube.position);
   }
   //List all mesh names
