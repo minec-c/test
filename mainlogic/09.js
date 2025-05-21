@@ -72,12 +72,17 @@ function handleGLTF(gltf) {  console.log('GLTF scene:', gltf.scene);  console.lo
               }  
   });
   scene.add(model);
-  model.traverse(function (child) {
-    if (child.isMesh && child.name === 'Cube') {
-      child.position.set(112, 112, 0);
-      console.log('Move Cube: ', child.position);
-    }
-  });
+  // model.traverse(function (child) {
+  //   if (child.isMesh && child.name === 'Cube') {
+  //     child.position.set(112, 112, 0);
+  //     console.log('Move Cube: ', child.position);
+  //   }
+  // });
+  const cube = model.getObjectByName('Cube');
+  if (cube && cube.isMesh){
+    cube.position.set(112, 112, 0);
+    console.log('Moved Cube:', cube.position);
+  }
   //List all mesh names
   model.traverse(function (child){ if (child.isMesh) { console.log('Found mesh name: ',child.name);}});
   //Find hierarchy and parents of child or meash:
