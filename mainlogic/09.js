@@ -48,7 +48,7 @@ function handleGLTF(gltf) {
   model.traverse  (  function (child){
     //2105251428 MOVE SPECIFIC MESH
     if (child.isMesh && child.name === 'Cube'){
-      child.position.set(11, 11, 0); // Move only this mesh
+      child.position.set(111, 111, 0); // Move only this mesh
     }
     if (child.isMesh) {
       const mat = child.material;
