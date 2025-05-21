@@ -43,6 +43,25 @@ function handleGLTF(gltf) {
        }
   //ADDED 2005252111
   const model = gltf.scene;
+  //ADDED 2105250001
+  //FIX MATERIALS (transparency/emissive)
+  model.traverse  (  function (child){
+    if (child.isMesh) {
+      const mat = child.material;
+      //FIX Transparency
+      if (mat.transparent !== true && mat.alphaMap) {
+        mat.transparent = true;
+        mat.depthWrite = false;
+        mat.alphaTest = 0.1; //or 0.01 depending on the texture
+      }
+      // OPtional: force emission to be visible
+      if (mat.emissive && mat.emissiveIntensity == 0){
+        mat.emissiveIntensity = 1;
+      }
+      // Optional: disable furstum culling if model disappears when off-center
+      child.frustumCulled = false;
+    }
+  });
   scene.add(model);
   if (gltf.animations.length > 0) {
     mixer = new THREE.AnimationMixer(model);
@@ -52,7 +71,7 @@ function handleGLTF(gltf) {
     } else {      console.warn('Animation "CubeAction" not found.');
     }
   }
-}
+}        //func handleGLTF(gltf)
 // gltfLoader.load(
 //   '../gltf/texture01dim256px.glb', // Make sure this path is correct!
 //                 // function(gltf){   (DEBUGING). Checking animation exist in gltf file:
