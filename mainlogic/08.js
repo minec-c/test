@@ -6,5 +6,6 @@ const floorMesh = new THREE.Mesh(
 	new THREE.MeshLambertMaterial({ color: 'forestgreen' })
 );
 floorMesh.rotation.x = -Math.PI / 2;
+floorMesh.receiveShadow = true
 scene.add(floorMesh);
 
