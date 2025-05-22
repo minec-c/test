@@ -24,6 +24,7 @@ import {scene} from '../mainlogic/04.js';
 
 // Animation variables
 let mixer;
+let planemesh = null
 // GLTF loader
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('../gltf/texture01dim256px.glb', 
@@ -42,7 +43,7 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                   const plane = gltf.scene;
                   // plane.position.set(122,0,0);
                   plane.traverse(function (node){
-                  if (node.isMesh){ node.castShadow = true; node.receiveShadow = true;}});
+                  if (node.isMesh){ node.castShadow = true; node.receiveShadow = true;  planemesh = node;}});
                   // plane.receiveShadow = true;
                   // plane.castShadow = true;
                   scene.add(plane);
@@ -52,6 +53,12 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 function (error) {console.error('Error loading treetest01bbnoanim.glb:', 
                 error);
 });
+function animate(){
+  requestAnimationFrame(animate){
+    if (planemesh){
+      planemesh.lookAt(scene,camera);
+    }
+    animate();
 function handleGLTF(gltf) {  
   if (gltf.animations.length === 0){        console.log('No animations found in the GLB file.');   } 
   else {    gltf.animations.forEach(  function (clip, index) {      console.log(`Animation ${index}:`, clip.name);    });
