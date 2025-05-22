@@ -44,7 +44,7 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                   const plane = gltf.scene;
                   // plane.position.set(122,0,0);
                   plane.traverse(function (node){
-                  if (node.isMesh){ node.castShadow = true; node.receiveShadow = true;  planemesh = node;  }});
+                  if (node.isMesh){ node.castShadow = true; node.receiveShadow = true; }});//  planemesh = node;  }});
                   // plane.receiveShadow = true;
                   // plane.castShadow = true;
                   scene.add(plane);
@@ -62,17 +62,21 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 //   renderer.render(scene,camera);
 // }
 //LOOP MESH ALWAYS FACE CAMERA WHEN ROTATING LEFT OR RIGHT AND NOT UP OR DOWN
-function animate(){
-  requestAnimationFrame(animate);
-  if (planemesh) {
-    const posmesh = planemesh.getWorldPosition(new THREE.Vector3());
-    const poscam = camera.position.clone();
-    poscam.y = posmesh.y; // Lock the vertical rotation
-    planemesh.lookAt(poscam);
-  }
-  renderer.render(scene,camera);
-}
-animate();
+
+//HIGHT CPU USAGE
+// function animate(){
+//   requestAnimationFrame(animate);
+//   if (planemesh) {
+//     const posmesh = planemesh.getWorldPosition(new THREE.Vector3());
+//     const poscam = camera.position.clone();
+//     poscam.y = posmesh.y; // Lock the vertical rotation
+//     planemesh.lookAt(poscam);
+//   }
+//   renderer.render(scene,camera);
+// }
+// animate();
+
+
 function handleGLTF(gltf) {  
   if (gltf.animations.length === 0){        console.log('No animations found in the GLB file.');   } 
   else {    gltf.animations.forEach(  function (clip, index) {      console.log(`Animation ${index}:`, clip.name);    });
