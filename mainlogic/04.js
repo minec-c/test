@@ -7,7 +7,8 @@ const scene = new THREE.Scene();
 //Load Background Texture
 const texloader = new THREE.TextureLoader();
 texloader.load(
-  '../texture/bgtexbluesky.png',
+  //'../texture/bgtexbluesky.png',
+  '../texture/bgbluesky128px.png',
   function (texture){  scene.background = texture;},
   undefined,
   function(err){ console.log('Error loading background texture:',err);}
