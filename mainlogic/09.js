@@ -4,6 +4,8 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {renderer} from '../mainlogic/02.js';
 import {scene} from '../mainlogic/04.js';
 import {camera} from '../mainlogic/05.js';
+const axeshelper = new THREE.AxesHelper(5);
+scene.add(axeshelper);
 // // GLTF Loader
 // const gltfLoader = new GLTFLoader();
 // gltfLoader.load(
