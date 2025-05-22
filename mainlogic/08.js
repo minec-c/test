@@ -12,6 +12,8 @@ const floorMesh = new THREE.Mesh(
 	new THREE.PlaneGeometry(50, 50),
 	// new THREE.MeshLambertMaterial({ color: 'forestgreen' })
 	new THREE.MeshLambertMaterial({map:grasstex})
+	//GRID PlaneGeometry making not visible
+	visible:false
 );
 floorMesh.rotation.x = -Math.PI / 2;
 floorMesh.receiveShadow = true
