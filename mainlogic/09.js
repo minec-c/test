@@ -3,6 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {renderer} from '../mainlogic/02.js';
 import {scene} from '../mainlogic/04.js';
+import {camera} from '../mainlogic/05.js';
 // // GLTF Loader
 // const gltfLoader = new GLTFLoader();
 // gltfLoader.load(
