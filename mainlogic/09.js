@@ -55,11 +55,13 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 error);
 });
 function animate(){
-  requestAnimationFrame(animate){
+  requestAnimationFrame(animate);
     if (planemesh){
-      planemesh.lookAt(scene,camera);
+      planemesh.lookAt(camera.position);
     }
-    animate();
+    render.render(scene,camera);
+  }
+animate();
 function handleGLTF(gltf) {  
   if (gltf.animations.length === 0){        console.log('No animations found in the GLB file.');   } 
   else {    gltf.animations.forEach(  function (clip, index) {      console.log(`Animation ${index}:`, clip.name);    });
