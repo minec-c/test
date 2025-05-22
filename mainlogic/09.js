@@ -61,11 +61,16 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 //   }
 //   renderer.render(scene,camera);
 // }
-if (planemesh) {
-  const posmesh = planemesh.getWorldPosition(new THREE.Vector3());
-  const poscam = camera.position.clone();
-  poscam.y = posmesh.y; // Lock the vertical rotation
-  planemesh.lookAt(poscam);
+//LOOP MESH ALWAYS FACE CAMERA WHEN ROTATING LEFT OR RIGHT AND NOT UP OR DOWN
+function animate(){
+  requestAnimationFrame(animate);
+  if (planemesh) {
+    const posmesh = planemesh.getWorldPosition(new THREE.Vector3());
+    const poscam = camera.position.clone();
+    poscam.y = posmesh.y; // Lock the vertical rotation
+    planemesh.lookAt(poscam);
+  }
+  renderer.render(scene,camera);
 }
 animate();
 function handleGLTF(gltf) {  
