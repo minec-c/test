@@ -43,7 +43,7 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 function (gltf){
                   const plane = gltf.scene;
                   // plane.position.set(122,0,0);
-                   node.rotation.x=-Math.PI*0.5
+                   plane.rotation.x=-Math.PI*0.5
                   plane.traverse(function (node){
                   if (node.isMesh){ node.castShadow = true; node.receiveShadow = true; planemesh = node;}});
                   // plane.receiveShadow = true;
