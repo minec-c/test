@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {scene} from '../mainlogic/04.js';
 //Load texture
 const texloader = new THREE.TextureLoader();
-const grasstex = texloader.load('../texture/grass2web.png');
+const grasstex = texloader.load('../texture/grass2web02.png');
 //Optional: Repea texture if needed
 grasstex.wrapS = THREE.RepeatWrapping;
 grasstex.wrapT = THREE.RepeatWrapping;
