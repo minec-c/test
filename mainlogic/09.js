@@ -41,8 +41,9 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 function (gltf){
                   const plane = gltf.scene;
                   // plane.position.set(122,0,0);
-                  plane.receiveShadow = true;
-                  plane.castShadow = true;
+                  if (node.isMesh){ node.castShadow = true; node.receiveShadow = true;}});
+                  // plane.receiveShadow = true;
+                  // plane.castShadow = true;
                   scene.add(plane);
                   handleGLTF(gltf);
                 },
