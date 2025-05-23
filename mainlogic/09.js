@@ -76,6 +76,7 @@ function animate(){
      const posmesh = planemesh.getWorldPosition(new THREE.Vector3());
      const poscam = camera.position.clone();
      poscam.z = posmesh.z; // Lock the vertical rotation                  poscam.y = posmesh.y;
+    poscam.x = posmesh.x;
      planemesh.lookAt(poscam);
   }
   renderer.render(scene,camera);
