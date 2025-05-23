@@ -45,7 +45,10 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                 function (gltf){
                   const plane = gltf.scene;
                   // plane.position.set(122,0,0);
-                   plane.rotation.x=-Math.PI*0.5
+                  //// First rotate from Y+ (up) to Z+ (forward)
+                   plane.rotation.x=-Math.PI /2
+                  //// Then rotate around Y to point diagonally between X and Z
+                  plane.rotation.y= Math.PI /4      // 45 degrees
                   plane.traverse(function (node){
                   if (node.isMesh){ node.castShadow = true; node.receiveShadow = true; planemesh = node;}});
                   // plane.receiveShadow = true;
