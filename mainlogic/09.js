@@ -32,6 +32,8 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 							instancedmesh.setMatrixAt(i, dummy.matrix);
 							
 						}
+					 	instancedmesh.castShadow = true;
+					 	instancedmesh.receiveShadow = true;
 						scene.add(plane);
 						scene.add(instancedmesh);
 			}						//if(node.isMesh
