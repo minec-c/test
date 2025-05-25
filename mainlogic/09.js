@@ -26,7 +26,8 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 						for (let i = 0;i<count;i++){
 							const pos = new THREE.Vector3( Math.random()*5-1, 0.45, Math.random()*5-1);
 							instancePositions.push(pos);
-							dummy.position.set( Math.random() * 4 - 1, 0.45, Math.random() * 4 - 1,);
+							dummy.position.copy(pos);
+							//dummy.position.set( Math.random() * 4 - 1, 0.45, Math.random() * 4 - 1,);
 							dummy.rotation.x = Math.PI / 2;
 							dummy.scale.set(1/2,1/2,1/2);
 							//dummy.rotation.z = -camera.rotation.z;
