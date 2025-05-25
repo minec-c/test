@@ -11,8 +11,8 @@ scene.add(axeshelper);
 let mixer;
 let planemesh = null;
 let instancedmesh = null;
-let dummy = null;
-let count = null;
+let dummy = new THREE.Object3D();
+let count = 11;
 const gltfLoader = new GLTFLoader();
 const instancePositions =[];
 gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
@@ -20,9 +20,9 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
                   const plane = gltf.scene;
                   plane.traverse(	function (node)		{
                   	if (node.isMesh){ 	node.castShadow = true; node.receiveShadow = true; planemesh = node;
-						count = 11;
+						//count = 11;
 						instancedmesh = new THREE.InstancedMesh(planemesh.geometry, planemesh.material, count);
-						dummy = new THREE.Object3D();
+						//dummy = new THREE.Object3D();
 						for (let i = 0;i<count;i++){
 							const pos = new THREE.Vector3( Math.random()*5-1, 0.45, Math.random()*5-1);
 							instancePositions.push(pos);
