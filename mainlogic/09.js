@@ -49,7 +49,13 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 
 
 controls.addEventListener(	'change', function()	{
-	  if (instancedmesh && planemesh) {				  // Update the instanced mesh if rotation has changed
+	insctancingclones();
+});
+//renderer.render(scene, camera);						// Initial render
+
+
+function insctancingclones(){
+		  if (instancedmesh && planemesh) {
 		    for (let i = 0; i < count; i++) {
 			    dummy.position.copy(instancePositions[i]);
 			      dummy.rotation.z = planemesh.rotation.z;
@@ -61,8 +67,46 @@ controls.addEventListener(	'change', function()	{
 	  // Match plane rotation with camera rotation
 	  planemesh.rotation.z = -camera.rotation.z;
 	  renderer.render(scene, camera);
-});
-renderer.render(scene, camera);						// Initial render
+}
+
+
+
+
+
+
+//UPDATED May 26, 2025
+let counter01 =0;
+let anicamera = false;
+document.getElementById('btnplay').onclick = ()=>{
+	controls.enabled = false;
+	anicamera = true;
+}
+function animate(){
+	requestAnimationFrame(animate);
+	if (anicamera){
+		counter01 +=0.007;
+		camera.position.z = Math.sin(counter01)*6;
+		camera.position.x = Math.cos(counter01)*6;
+		camera.lookAt(0,0,0);
+	}
+	instancingclones();
+}
+animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
