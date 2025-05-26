@@ -48,10 +48,7 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 });
 
 
-controls.addEventListener(	'change', function()	{
-	instancingclones();
-});
-//renderer.render(scene, camera);						// Initial render
+
 
 
 function instancingclones(){
@@ -70,7 +67,10 @@ function instancingclones(){
 }
 
 
-
+controls.addEventListener(	'change', function()	{
+	instancingclones();
+});
+//renderer.render(scene, camera);						// Initial render
 
 
 
