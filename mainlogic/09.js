@@ -49,12 +49,12 @@ gltfLoader.load('../gltf/treetest02PBSDFnoanim.glb',
 
 
 controls.addEventListener(	'change', function()	{
-	insctancingclones();
+	instancingclones();
 });
 //renderer.render(scene, camera);						// Initial render
 
 
-function insctancingclones(){
+function instancingclones(){
 		  if (instancedmesh && planemesh) {
 		    for (let i = 0; i < count; i++) {
 			    dummy.position.copy(instancePositions[i]);
